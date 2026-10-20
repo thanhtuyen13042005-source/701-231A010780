@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần Lý Thuyết - Đề Số 1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="main-menu">
+        <a href="index.html">Trang chủ</a>
+        <a href="lythuyet.html" class="active">a) Trả lời Lý thuyết</a>
+        <a href="https://thanhtuyen13042005-source.github.io/bt23/#den-keo-quan" target="_blank">b) Bài tập 23 </a>
+        <a href="bt22.html">c) Bài tập 22</a>
+        <a href="diemdanh.html">d) Thông tin Điểm danh</a>
+    </nav>
+
+    <div class="content-section" style="max-width: 900px; margin: 30px auto; text-align: left;">
+        <h1>Phần Lý Thuyết (40 điểm)</h1>
+        
+        <div class="theory-item">
+            <h3>1. Sự khác biệt giữa <code>position: absolute</code> và <code>position: relative</code> (10 điểm)</h3>
+            <p><strong>Đặc điểm cốt lõi:</strong></p>
+            <ul>
+                <li><code>position: relative</code>: Phần tử vẫn giữ nguyên vị trí mặc định của mình trong dòng chảy tài liệu (document flow). Khi dùng các thuộc tính điều hướng (<code>top</code>, <code>left</code>, v.v.), nó sẽ dịch chuyển tương đối dựa theo chính tọa độ gốc của nó mà không làm ảnh hưởng đến không gian của các thành phần xung quanh.</li>
+                <li><code>position: absolute</code>: Phần tử bị tách ra hoàn toàn khỏi dòng chảy tài liệu thông thường. Tọa độ của nó được xác định dựa trên phần tử cha gần nhất có thiết lập định vị (khác giá trị mặc định <code>static</code>, ví dụ như có <code>relative</code>).</li>
+            </ul>
+            <p><strong>Ứng dụng thực tế trong Responsive:</strong> Thường thiết lập <code>relative</code> cho khung bao bọc (container) bên ngoài làm mốc, sau đó dùng <code>absolute</code> để ghim các chi tiết con vào vị trí cố định (như nút "Đóng" hình chữ X ở góc trên modal hoặc khung ảnh) để giao diện co giãn ổn định trên nhiều thiết bị.</p>
+        </div>
+
+        <div class="theory-item">
+            <h3>2. Quy trình Domain, Hosting, DNS và Công cụ Deploy (10 điểm)</h3>
+            <p><strong>Quy trình triển khai:</strong> Đầu tiên cần mua tên miền (Domain) tại nhà cung cấp, chuẩn bị không gian lưu trữ mã nguồn (Hosting), sau đó cấu hình các bản ghi DNS (như A record hoặc CNAME) để trỏ tên miền về địa chỉ IP của hosting, giúp trình duyệt nhận diện và hiển thị website.</p>
+            <p><strong>Công cụ hỗ trợ không cần server riêng:</strong> Sử dụng các nền tảng chuyên dụng như GitHub Pages hoặc Netlify để tự động hóa quy trình xuất bản (build) các trang web tĩnh trực tiếp từ mã nguồn Git.</p>
+            <p><strong>Rủi ro bảo mật tiềm ẩn:</strong> Nếu bỏ qua việc kích hoạt giao thức bảo mật HTTPS (SSL) hoặc sơ ý để lộ mã thông báo quản trị (API token), website rất dễ trở thành mục tiêu của các cuộc tấn công đánh cắp dữ liệu hoặc bị kẻ xấu chiếm quyền quản lý kho chứa mã nguồn.</p>
+        </div>
+
+        <div class="theory-item">
+            <h3>3. So sánh <code>let</code>, <code>const</code> và <code>var</code> về Scope và Hoisting (10 điểm)</h3>
+            <p><strong>Sự khác biệt về phạm vi và cơ chế hoisting:</strong></p>
+            <ul>
+                <li><code>var</code>: Hoạt động theo phạm vi hàm (function-scoped) và hỗ trợ cơ chế đưa khai báo lên đầu (hoisting) với giá trị khởi tạo mặc định là <code>undefined</code>.</li>
+                <li><code>let</code> và <code>const</code>: Hoạt động theo phạm vi khối (block-scoped) và tuân thủ vùng chết tạm thời (Temporal Dead Zone - không thể truy cập biến trước khi dòng code khai báo được thực thi). Đặc biệt, <code>const</code> dùng cho hằng số và không cho phép gán lại giá trị mới.</li>
+            </ul>
+            <p><strong>Phương pháp Debug:</strong> Sử dụng công cụ Chrome DevTools (chuyển đến tab <em>Sources</em>, đặt các điểm dừng <em>Breakpoints</em> hoặc chèn từ khóa <code>debugger;</code> vào mã nguồn) để kiểm tra giá trị và phạm vi hoạt động của biến từng dòng một.</p>
+        </div>
+
+        <div class="theory-item">
+            <h3>4. Khái niệm Event Delegation trong JavaScript (10 điểm)</h3>
+            <p><strong>Bản chất kỹ thuật:</strong> Đây là một kỹ thuật tối ưu hóa dựa trên cơ chế nổi bọt sự kiện (Event Bubbling). Thay vì phải gán sự kiện cho từng phần tử con riêng lẻ, lập trình viên chỉ cần đặt một trình lắng nghe sự kiện duy nhất ở thẻ bao bọc cấp cha để quản lý chung.</p>
+            <p><strong>Lợi ích tối ưu:</strong> Cực kỳ hữu hiệu khi thao tác với các danh sách dữ liệu sinh ra liên tục (dynamic list). Phương pháp này giúp tiết kiệm bộ nhớ đáng kể và tăng tốc độ xử lý của trang web vì tránh được việc lặp lại thao tác gán sự kiện thủ công cho các phần tử mới phát sinh.</p>
+        </div>
+    </div>
+
+</body>
+</html>
